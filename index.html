@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализ рынка поисковой строки - Профессиональная аналитика SEO трендов</title>
+    <meta name="description" content="Профессиональный анализ рынка поисковой строки. Аналитика SEO трендов, конкурентный анализ, прогнозирование популярности ключевых слов. Получите детальную аналитику для вашего бизнеса.">
+    <meta name="keywords" content="анализ поисковой строки, SEO аналитика, ключевые слова, конкурентный анализ, тренды поиска, маркетинговая аналитика">
+    <meta name="author" content="SEO Analytics Pro">
+    <meta property="og:title" content="Анализ рынка поисковой строки - Профессиональная аналитика">
+    <meta property="og:description" content="Получите детальную аналитику поисковых трендов и конкурентный анализ для вашего бизнеса">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>SearchAnalytics</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#analytics">Аналитика</a></li>
+                    <li><a href="#competitors">Конкуренты</a></li>
+                    <li><a href="#tool">Инструмент</a></li>
+                    <li><a href="#blog">Блог</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Анализ рынка поисковой строки</h1>
+                <p class="hero-subtitle">Профессиональная аналитика SEO трендов и конкурентного анализа для принятия обоснованных бизнес-решений</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10M+</span>
+                        <span class="stat-label">Анализируемых запросов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Клиентов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Точность прогнозов</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('analytics')">
+                        <i class="fas fa-chart-bar"></i>
+                        Начать анализ
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadReport()">
+                        <i class="fas fa-download"></i>
+                        Скачать отчет
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="chart-container">
+                    <canvas id="heroChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Dashboard -->
+    <section id="analytics" class="analytics">
+        <div class="container">
+            <div class="section-header">
+                <h2>Аналитическая панель</h2>
+                <p>Реальные данные по популярности поисковых запросов и трендам</p>
+            </div>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3>Популярные запросы</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" onclick="exportChart('popularQueries')">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="popularQueriesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3>Динамика трендов</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" onclick="exportChart('trendsChart')">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="trendsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3>Географическое распределение</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" onclick="exportChart('geoChart')">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3>Сезонность запросов</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" onclick="exportChart('seasonalityChart')">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="seasonalityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitors Analysis -->
+    <section id="competitors" class="competitors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Конкурентный анализ</h2>
+                <p>Детальный анализ ключевых игроков рынка и их стратегий</p>
+            </div>
+
+            <div class="competitors-grid">
+                <div class="competitor-card">
+                    <div class="competitor-header">
+                        <div class="competitor-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="competitor-info">
+                            <h3>Компания А</h3>
+                            <span class="competitor-category">Технологии</span>
+                        </div>
+                        <div class="competitor-score">
+                            <span class="score">8.5</span>
+                            <span class="score-label">Рейтинг</span>
+                        </div>
+                    </div>
+                    <div class="competitor-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Поисковые запросы</span>
+                            <span class="metric-value">15,420</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Органический трафик</span>
+                            <span class="metric-value">+23%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Конверсия</span>
+                            <span class="metric-value">4.2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competitor-card">
+                    <div class="competitor-header">
+                        <div class="competitor-logo">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="competitor-info">
+                            <h3>Компания Б</h3>
+                            <span class="competitor-category">Маркетинг</span>
+                        </div>
+                        <div class="competitor-score">
+                            <span class="score">7.8</span>
+                            <span class="score-label">Рейтинг</span>
+                        </div>
+                    </div>
+                    <div class="competitor-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Поисковые запросы</span>
+                            <span class="metric-value">12,850</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Органический трафик</span>
+                            <span class="metric-value">+18%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Конверсия</span>
+                            <span class="metric-value">3.8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competitor-card">
+                    <div class="competitor-header">
+                        <div class="competitor-logo">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="competitor-info">
+                            <h3>Компания В</h3>
+                            <span class="competitor-category">E-commerce</span>
+                        </div>
+                        <div class="competitor-score">
+                            <span class="score">9.1</span>
+                            <span class="score-label">Рейтинг</span>
+                        </div>
+                    </div>
+                    <div class="competitor-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Поисковые запросы</span>
+                            <span class="metric-value">18,750</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Органический трафик</span>
+                            <span class="metric-value">+31%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Конверсия</span>
+                            <span class="metric-value">5.1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tool -->
+    <section id="tool" class="tool">
+        <div class="container">
+            <div class="section-header">
+                <h2>Интерактивный инструмент анализа</h2>
+                <p>Введите ключевые слова и получите детальный прогноз их популярности</p>
+            </div>
+
+            <div class="tool-container">
+                <div class="tool-input">
+                    <div class="input-group">
+                        <label for="keywordInput">Ключевые слова</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="keywordInput" placeholder="Введите ключевые слова через запятую">
+                            <button class="btn btn-primary" onclick="analyzeKeywords()">
+                                <i class="fas fa-search"></i>
+                                Анализировать
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <div class="filter">
+                            <label>Регион</label>
+                            <select id="regionSelect">
+                                <option value="all">Все регионы</option>
+                                <option value="moscow">Москва</option>
+                                <option value="spb">Санкт-Петербург</option>
+                                <option value="russia">Вся Россия</option>
+                            </select>
+                        </div>
+                        <div class="filter">
+                            <label>Период</label>
+                            <select id="periodSelect">
+                                <option value="30">30 дней</option>
+                                <option value="90">90 дней</option>
+                                <option value="180">180 дней</option>
+                                <option value="365">1 год</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-results" id="toolResults">
+                    <div class="results-placeholder">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Введите ключевые слова для получения анализа</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2>Аналитические статьи и инсайты</h2>
+                <p>Актуальные новости и экспертные мнения по SEO и поисковым трендам</p>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">15 декабря 2024</span>
+                            <span class="blog-category">SEO</span>
+                        </div>
+                        <h3>Тренды поисковых запросов в 2024 году</h3>
+                        <p>Анализ самых популярных поисковых запросов и их влияние на бизнес-стратегии компаний.</p>
+                        <a href="#" class="blog-link">Читать далее</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">12 декабря 2024</span>
+                            <span class="blog-category">Аналитика</span>
+                        </div>
+                        <h3>Как анализировать поведение пользователей</h3>
+                        <p>Методы изучения поискового поведения и их применение в маркетинговых стратегиях.</p>
+                        <a href="#" class="blog-link">Читать далее</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-trending-up"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">10 декабря 2024</span>
+                            <span class="blog-category">Тренды</span>
+                        </div>
+                        <h3>Прогнозирование популярности ключевых слов</h3>
+                        <p>Современные методы прогнозирования и их точность в различных отраслях.</p>
+                        <a href="#" class="blog-link">Читать далее</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="blog-newsletter">
+                <div class="newsletter-content">
+                    <h3>Подпишитесь на рассылку</h3>
+                    <p>Получайте актуальные аналитические статьи и инсайты прямо на почту</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Ваш email" id="newsletterEmail">
+                        <button class="btn btn-primary" onclick="subscribeNewsletter()">
+                            <i class="fas fa-paper-plane"></i>
+                            Подписаться
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Свяжитесь с нами</h2>
+                <p>Получите персональную консультацию по анализу рынка поисковой строки</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@searchanalytics.pro</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+7 (495) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>Москва, ул. Примерная, д. 123</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Компания</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Опишите ваши потребности в анализе поисковой строки"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Отправить сообщение
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>SearchAnalytics</span>
+                    </div>
+                    <p>Профессиональная аналитика поисковых трендов и конкурентного анализа для вашего бизнеса</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#analytics">Аналитика данных</a></li>
+                        <li><a href="#competitors">Конкурентный анализ</a></li>
+                        <li><a href="#tool">Инструменты анализа</a></li>
+                        <li><a href="#blog">Экспертные статьи</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="#privacy">Политика конфиденциальности</a></li>
+                        <li><a href="#terms">Условия использования</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Подписка</h4>
+                    <p>Получайте актуальные аналитические материалы</p>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Email">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SearchAnalytics. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

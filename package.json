@@ -1,0 +1,33 @@
+{
+  "name": "search-analytics-website",
+  "version": "1.0.0",
+  "description": "Профессиональный сайт для анализа рынка поисковой строки с интерактивными графиками и экспортом PDF",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 --cors -o",
+    "dev": "http-server -p 3000 --cors",
+    "serve": "http-server -p 8080 --cors"
+  },
+  "keywords": [
+    "seo",
+    "analytics",
+    "search",
+    "keywords",
+    "market-analysis",
+    "data-visualization",
+    "pdf-export"
+  ],
+  "author": "SearchAnalytics Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/search-analytics-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/search-analytics-website/issues"
+  },
+  "homepage": "https://github.com/yourusername/search-analytics-website#readme"
+} 
